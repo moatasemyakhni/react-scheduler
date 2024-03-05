@@ -32,7 +32,8 @@ export const StyledText = styled.p<StyledTextProps>`
   font-weight: ${({ bold }) => (bold ? "600" : "400")};
   &:first-child {
     &::after {
-      content: "|";
+      /* content: "|"; */
+      content: "";
       margin: 0 3px;
     }
   }

@@ -1,8 +1,9 @@
 import { useCallback, useMemo, useState } from "react";
 import dayjs from "dayjs";
+import markerIcon from "@/assets/icons/svgs/marker.svg";
 import { createMockData } from "./mock/appMock";
 import { ParsedDatesRange } from "./utils/getDatesRange";
-import { ConfigFormValues, SchedulerProjectData } from "./types/global";
+import { ConfigFormValues, SchedulerData, SchedulerProjectData } from "./types/global";
 import ConfigPanel from "./components/ConfigPanel";
 import { StyledSchedulerFrame } from "./styles";
 import { Scheduler } from ".";
@@ -19,10 +20,34 @@ function App() {
 
   const { peopleCount, projectsPerYear, yearsCovered, isFullscreen, maxRecordsPerPage } = values;
 
-  const mocked = useMemo(
-    () => createMockData(+peopleCount, +yearsCovered, +projectsPerYear),
-    [peopleCount, projectsPerYear, yearsCovered]
-  );
+  const mocked = useMemo(() => {
+    const generatedData = createMockData(+peopleCount, +yearsCovered, +projectsPerYear);
+
+    const data: SchedulerData = [
+      {
+        id: "1231421asfmkmfam",
+        label: {
+          title: "JAMESSS DOEEE",
+          subtitle: "HELLO WORLD",
+          icon: ""
+        },
+        data: [
+          {
+            id: "fasjfiajif",
+            title: "TEST",
+            startDate: new Date(),
+            endDate: new Date("3-6-2024"),
+            occupancy: 12,
+            bgColor: "red",
+            subtitle: "efas",
+            subtitleIcon: markerIcon
+          }
+        ]
+      },
+      ...generatedData
+    ];
+    return data;
+  }, [peopleCount, projectsPerYear, yearsCovered]);
 
   const [range, setRange] = useState<ParsedDatesRange>({
     startDate: new Date(),
@@ -68,6 +93,7 @@ function App() {
           onFilterData={handleFilterData}
           config={{ zoom: 0, maxRecordsPerPage: maxRecordsPerPage }}
           onItemClick={(data) => console.log("clicked: ", data)}
+          isToolTipVisible={false}
         />
       ) : (
         <StyledSchedulerFrame>
@@ -79,6 +105,7 @@ function App() {
             onTileClick={handleTileClick}
             onFilterData={handleFilterData}
             onItemClick={(data) => console.log("clicked: ", data)}
+            isToolTipVisible
           />
         </StyledSchedulerFrame>
       )}

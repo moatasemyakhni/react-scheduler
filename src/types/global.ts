@@ -75,6 +75,10 @@ export type SchedulerProjectData = {
    */
   title: string;
   /**
+   * Subtitle Icon of item. Comes before the subtitle. Optional
+   */
+  subtitleIcon?: string;
+  /**
    * Subtitle of item. Optional
    */
   subtitle?: string;

@@ -5,6 +5,7 @@ export type CalendarProps = {
   topBarWidth: number;
   onTileClick?: (data: SchedulerProjectData) => void;
   onItemClick?: (data: SchedulerItemClickData) => void;
+  isToolTipVisible?: boolean;
 };
 
 export type StyledSpanProps = {

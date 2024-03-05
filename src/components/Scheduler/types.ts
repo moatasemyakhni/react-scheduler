@@ -16,6 +16,7 @@ export type SchedulerProps = {
   onFilterData?: () => void;
   onClearFilterData?: () => void;
   onItemClick?: (data: SchedulerItemClickData) => void;
+  isToolTipVisible?: boolean;
 };
 
 export type StyledOutsideWrapperProps = {

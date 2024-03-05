@@ -1,1 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap");
+
+:root {
+    --primaryColor: #3348B0;
+    --secondaryColor: #253697;
+    --pillarColor: #19277E;
+    --objectiveColor: #105370;
+    --keyResultColor: #52A6B3;
+    --taskColor: #7CAED5;
+}

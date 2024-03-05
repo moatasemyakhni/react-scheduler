@@ -36,10 +36,23 @@ const Tile: FC<TileProps> = ({ row, data, zoom, onTileClick }) => {
       }}
       onClick={() => onTileClick?.(data)}>
       <StyledTextWrapper>
-        <StyledStickyWrapper>
-          <StyledText bold>{data.title}</StyledText>
-          <StyledText>{data.subtitle}</StyledText>
-          <StyledDescription>{data.description}</StyledDescription>
+        <StyledStickyWrapper
+          style={{
+            overflow: "visible",
+            background: data.bgColor ?? tileDefaultBgColor,
+            padding: "4px 2px 4px 0px",
+            borderRadius: "0px 4px 4px 0px"
+          }}>
+          <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
+            <StyledText bold>{data.title}</StyledText>
+            {data.subtitleIcon && (
+              <img src={data.subtitleIcon} style={{ width: 14, height: 14 }} alt="Icon" />
+            )}
+            <StyledText>{data.subtitle}</StyledText>
+          </div>
+          <StyledDescription style={{ paddingTop: data.description ? 4 : 0 }}>
+            {data.description}
+          </StyledDescription>
         </StyledStickyWrapper>
       </StyledTextWrapper>
     </StyledTileWrapper>
