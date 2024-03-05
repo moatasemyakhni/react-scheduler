@@ -1,6 +1,7 @@
 <div align="center">
   <img src="logo.svg" style="height: 60px" alt="@bitnoise/react-scheduler">
   <hr />
+  <b>Original Author</b>
   <p align="center">
     ✨ <a href="https://scheduler.bitnoise.pl/">https://scheduler.bitnoise.pl/</a> ✨
     <br/>
@@ -20,9 +21,9 @@
 
 ```bash
 # yarn
-yarn add '@bitnoi.se/react-scheduler'
+yarn add '@moatasemyakhni/react-scheduler'
 # npm
-npm install '@bitnoi.se/react-scheduler'
+npm install '@moatasemyakhni/react-scheduler'
 ```
 
 ### Example usage
@@ -30,13 +31,13 @@ npm install '@bitnoi.se/react-scheduler'
 1. import required styles for scheduler
 
 ```ts
-import "@bitnoi.se/react-scheduler/dist/style.css";
+import "@moatasemyakhni/react-scheduler/dist/style.css";
 ```
 
 2. Import Scheduler component into your project
 
 ```ts
-import { Scheduler, SchedulerData } from "@bitnoi.se/react-scheduler";
+import { Scheduler, SchedulerData } from "@moatasemyakhni/react-scheduler";
 
 default export function Component() {
   const [filterButtonState, setFilterButtonState] = useState(0);
@@ -135,6 +136,7 @@ const mockedSchedulerData: SchedulerData = [
 | onFilterData      | `function` | -                                 | callback firing when filter button was clicked                                                                                    |
 | onClearFilterData | `function` | -                                 | callback firing when clear filters button was clicked (clearing button is visible **only** when filterButtonState is set to `>0`) |
 | config            | `Config`   | -                                 | object with scheduler config properties                                                                                           |
+| isToolTipVisible            | `boolean`   | -                                 | shows/removes tooltip. Optional                                                                                           |
 
 ##### Scheduler Config Object
 
